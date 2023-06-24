@@ -70,6 +70,7 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   font-family: "Nunito", sans-serif;
+  max-width: 100%;
 }
 
 .banner {
@@ -78,6 +79,7 @@ body {
   background-position: center;
   max-width: 100%;
   height: 20.313rem;
+  top: 0;
 }
 
 .blur {
@@ -101,57 +103,151 @@ body {
   margin-top: 26px;
 }
 
-.fa-plane-departure {
-  color: #ffffff;
+.fa-plane {
+  background: linear-gradient(to right, white, #1090eb);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-size: 5.3125rem;
+  margin-right: 10px;
 }
 
 .page {
   background-color: #1f3c74;
-  max-width: 200vh;
+  max-width: 100%;
   height: 43.688rem;
-}
-
-.desc {
-  background-color: #4285f4;
-  width: 16.9375rem;
-  height: 45.5625rem;
-  margin-top: 2rem;
-}
-
-.input {
-  background-color: #4285f4;
-  width: 47.625rem;
-  height: 12.625rem;
-}
-
-.data {
-  background-color: aliceblue;
-  width: 47.625rem;
-  height: 31.813rem;
+  bottom: 0;
 }
 
 .display {
   z-index: 1;
   position: relative;
-  max-width: 90rem;
+  max-width: 100%;
 }
 
 .content {
-  position: absolute;
   width: 100%;
+  position: absolute;
   height: 100%;
   z-index: 2;
   top: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 9.688rem;
 }
 
-.user {
+.desc {
+  background-color: #4285f4;
+  color: #ffffff;
+  top: 162px;
+  left: 129px;
   display: flex;
+  box-shadow: 6px 6px 6px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  text-align: center;
   flex-direction: column;
-  gap: 2.519rem;
-  margin-top: 11rem;
+  width: min-content;
+  height: min-content;
+}
+
+.desc {
+  position: absolute;
+}
+
+.desc p {
+  font-size: 1.063rem;
+  max-width: 13.3125rem;
+  letter-spacing: 0.10625rem;
+  margin: 24px;
+}
+
+.desc img {
+  max-width: 271px;
+  max-height: 250px;
+  border-radius: 5px;
+}
+
+.input {
+  position: absolute;
+  background-color: #4285f4;
+  border-radius: 10px;
+  box-shadow: 6px 6px 6px 5px rgba(0, 0, 0, 0.25);
+  right: 110px;
+  top: 224px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  width: min-content;
+  height: min-content;
+}
+
+.input div:not(.weWill, .Ask) {
+  background-color: #1f3c74;
+  color: #ffffff;
+  width: 136px;
+  height: 70px;
+  margin: 15px;
+  border-radius: 5px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.weWill {
+  font-size: 24px;
+  margin: 15px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+}
+
+.Ask {
+  background-color: #ffffff;
+  width: 197px;
+  height: 70px;
+  margin: 15px;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 4px 4px 0px #000000;
+}
+
+.Ask p {
+  width: 200px;
+  font-size: 24px;
+  padding-left: 19px;
+  padding-right: 19px;
+}
+
+.Ask p span {
+  color: #0170bf;
+}
+
+.weWill p {
+  width: 100px;
+}
+
+.data {
+  width: min-content;
+  height: min-content;
+  border-radius: 10px;
+  background: rgba(46, 41, 41, 0.27);
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  position: absolute;
+  top: 459px;
+  right: 110px;
+}
+
+#blockSpace {
+  width: 725px;
+  height: 509px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 1rem;
 }

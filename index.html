@@ -17,54 +17,96 @@
       href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap"
       rel="stylesheet"
     />
-    <script src="javscript.js" defer></script>
+    <script src="index.js" defer></script>
     <title>Flight Delay Predictor</title>
   </head>
   <body>
     <!-- This is the banner (cloud image) including the title -->
     <div class="display">
-      <div class="banner">
-        <div class="title">
-          <i class="fa-solid fa-plane fa-rotate-270"></i>
-          <div class="blur"><h1>Flight Delay Predictor</h1></div>
-        </div>
-      </div>
+      <div class="banner"></div>
     </div>
     <!-- The dark blue background below the banner -->
     <div class="page"></div>
 
-    <!-- This is the content that overlaps both the banner and background -->
-    <div class="content">
-      <!-- The Description of the website -->
-      <div class="desc">
-        <p>
-          Introducing FlightDelayPredictor, a cutting-edge website that
-          harnesses the power of advanced algorithms and real-time data to
-          predict the likelihood of flight delays. With its intuitive interface
-          and reliable predictions, FlightDelayPredictor aims to assist
-          travelers in making informed decisions and minimizing disruptions to
-          their travel plans.
-        </p>
-        <img src="/images/flight.png" />
-      </div>
-      <!-- The section where the user may input their flight number -->
-      <div class="input">
-        <div class="weWill"><p>We Will Find:</p></div>
-        <div class="departure"><p>Departure</p></div>
-        <div class="arrival"><p>Arrival</p></div>
-        <div class="Ask">
-          <p>Enter Your <span>Flight Number</span></p>
+    <main>
+      <!-- This is the content that overlaps both the banner and background -->
+      <div class="content">
+        <div class="title">
+          <i class="fa-solid fa-plane fa-rotate-270"></i>
+          <div class="blur"><h1>Flight Delay Predictor</h1></div>
         </div>
-        <div class="gate"><p>Gate</p></div>
-        <div class="airport"><p>Airport</p></div>
-        <div class="delaychance"><p>Delay Chance</p></div>
-      </div>
-      <!-- The data that will display after user input -->
-      <div class="data">
-        <div id="blockSpace">
-          <p>Our Prediction Will Show Up Here! 🤓</p>
+
+        <!-- The Description of the website -->
+        <div class="desc">
+          <p>
+            Introducing FlightDelayPredictor, a cutting-edge website that
+            harnesses the power of advanced algorithms and real-time data to
+            predict the likelihood of flight delays. With its intuitive
+            interface and reliable predictions, FlightDelayPredictor aims to
+            assist travelers in making informed decisions and minimizing
+            disruptions to their travel plans.
+          </p>
+          <img src="/images/flight.png" />
+        </div>
+        <!-- The section where the user may input their flight number -->
+        <div class="input">
+          <div class="weWill"><p>We Will Find:</p></div>
+          <div class="departure"><p>Departure</p></div>
+          <div class="arrival"><p>Arrival</p></div>
+          <div class="Ask">
+            <p>Enter Your <span>Flight Number</span></p>
+          </div>
+          <div class="gate"><p>Gate</p></div>
+          <div class="airport"><p>Airport</p></div>
+          <div class="delaychance"><p>Delay Chance</p></div>
+          <div class="search">
+            <!-- This is the form for the flight number-->
+            <form action="" class="search-bar">
+              <input
+                type="text"
+                placeholder="Flight #"
+                name="userFN"
+                id="userInput"
+              />
+              <button type="submit" value="submit">
+                <i
+                  class="fa-solid fa-magnifying-glass"
+                  style="color: #000000"
+                ></i>
+              </button>
+            </form>
+          </div>
+        </div>
+        <!-- The data that will display after user input -->
+
+        <div class="SearchMessage">
+          <p>
+            Enter your flight number so that we can conduct our calculations 🤓
+            <i
+              class="fa-solid fa-calculator fa-spin"
+              style="color: #ffffff"
+            ></i>
+          </p>
+        </div>
+
+        <div class="data">
+          <div class="flightDate1">
+            <span>0000-0-00</span>
+            Flight Date
+          </div>
+          <div class="destination1">
+            <span>IAD</span>
+            <p>Washington Dulles International</p>
+            <i class="fa-solid fa-earth-americas" style="color: #0080c0"></i>
+            <span>PTY</span>
+            <p>Tocumen International</p>
+          </div>
+          <div class="chances1"><span>60%</span>Delay Chance</div>
+          <div class="gate1"><span>G9</span>Gate</div>
+          <div class="departure1"><span>0000-0-00</span>Departure</div>
+          <div class="arrival1"><span>0000-0-00</span>Arrival</div>
         </div>
       </div>
-    </div>
+    </main>
   </body>
 </html>

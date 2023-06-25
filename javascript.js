@@ -7,7 +7,7 @@ async function getData(input) {
 	}
 	else{
 		// let url = "http://api.weatherapi.com/v1/current.json?key=3fda6242348841e0adf144419232206&q=chantilly"
-		let url = "http://api.aviationstack.com/v1/flights?access_key=df4c0ede01f489b328e2e6a32c6a11a6&flight_iata=" + input;
+		let url = "http://api.aviationstack.com/v1/flights?access_key=425a6db363838a1bb46684f564983ff6&flight_iata=" + input;
 		// console.log(url);
 		//QI206
 		fetch(url, { mode: "cors" })
@@ -133,7 +133,7 @@ async function getData(input) {
       duration;
 	let delayChance = NaN
 	fetch(url2, {
-		headers: { Authorization: "Bearer a1KDHz2V7hA1AQktlwArCHKOKMEU" },
+		headers: { Authorization: "Bearer 8YCz7OHdK1aWcDf0tykNwde8kIfe" },
 	})
 		.then(function (response) {
 			return response.json();

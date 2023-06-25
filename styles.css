@@ -73,6 +73,8 @@ body {
   max-width: 100%;
 }
 
+
+
 main {
   max-width: 100%;
   max-height: 100%;
@@ -106,17 +108,47 @@ main {
 .title {
   display: inline-flex;
   align-items: center;
-  margin-top: 26px;
+  gap: 20px;
+  margin-top: 30px;
   margin-left: 8.95%;
 }
 
-.fa-plane {
-  background: linear-gradient(to right, white, #1090eb);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 5.3125rem;
-  margin-right: 10px;
+.proton{
+  width: 80px;
+  height: 80px;
+  background-image: url('/images/EARTH.png');
+  background-size: cover;
+  border-radius: 50%;
+
 }
+
+.electron{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  animation: rotation 3s infinite linear;
+}
+
+.electron::before{
+  content: '✈';
+  transform: rotate(-29deg);
+  width: 20px;
+  height: 20px;
+  font-size: 30px;
+  color: #ffffff;
+  position: absolute;
+  left: -20px;
+  top: -20px;
+
+}
+
+@keyframes rotation{
+  0%{
+    transform: rotate(-360deg);
+  }
+}
+
+
 
 .page {
   background-color: #1f3c74;
@@ -152,6 +184,8 @@ main {
   width: min-content;
   height: min-content;
   position: absolute;
+  animation-name: slideInLeft;
+  animation-duration: 1s;
 }
 
 .desc p {
@@ -179,6 +213,8 @@ main {
   grid-template-rows: 1fr 1fr;
   width: min-content;
   height: min-content;
+  animation-name: slideInRight;
+  animation-duration: 1s;
 }
 
 .input div:not(.weWill, .Ask, .search) {
@@ -282,7 +318,7 @@ main {
   height: min-content;
   border-radius: 10px;
   /* Change to display grid to show the data */
-  display: grid;
+  display: none;
   grid-template-columns: min-content;
   gap: 10px;
   position: absolute;
@@ -303,12 +339,46 @@ main {
   right: 100px;
   z-index: 2;
   /* Change to display flex so that it appears */
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: #ffffff;
   font-size: 24px;
+  animation-name: slideInBottom;
+  animation-duration: 1s;
+}
+
+@keyframes slideInBottom{
+  from {
+    transform: translateY(100px);
+  }
+  to{
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft{
+  from {
+    transform: translateX(-300px);
+  }
+  to{
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight{
+  from {
+    transform: translateX(300px);
+  }
+  to{
+    transform: translateX(0);
+  }
+}
+
+
+.data div:hover{
+    transform: scale(1.02);
 }
 
 .SearchMessage p {
@@ -338,6 +408,7 @@ main {
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 .destination1 {
   background-color: #ffffff;
   border-radius: 25px;
@@ -465,3 +536,5 @@ main {
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+

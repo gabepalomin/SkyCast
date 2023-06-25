@@ -83,7 +83,7 @@ main {
 }
 
 .banner {
-  background-image: url(/images/pexels-pixabay-531756.jpg);
+  background-image: url('/images/pexels-pixabay-531756.jpg');
   background-size: cover;
   background-position: center;
   max-width: 100%;

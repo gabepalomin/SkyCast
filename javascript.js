@@ -6,7 +6,7 @@ async function getData(input) {
 		para.textContent = "Invalid Flight Number, Enter the IATA flight number";
 	}
 	else{
-		let url = "http://api.aviationstack.com/v1/flights?access_key=425a6db363838a1bb46684f564983ff6&flight_iata=" + input;
+		let url = "http://api.aviationstack.com/v1/flights?access_key=b39d1984c7900258091947bda6cbbdb9&flight_iata=" + input;
 		fetch(url, { mode: "cors" })
 		.then(function (response) {
 			return response.json();

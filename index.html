@@ -17,7 +17,7 @@
       href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap"
       rel="stylesheet"
     />
-    <script src="index.js" defer></script>
+    <script src="javascript.js" defer></script>
     <title>Flight Delay Predictor</title>
   </head>
   <body>
@@ -61,20 +61,20 @@
           <div class="delaychance"><p>Delay Chance</p></div>
           <div class="search">
             <!-- This is the form for the flight number-->
-            <form action="" class="search-bar">
+            <div class="search-bar">
               <input
                 type="text"
                 placeholder="Flight #"
                 name="userFN"
                 id="userInput"
               />
-              <button type="submit" value="submit">
+              <button type="submit" value="submit" id = "FlightNumberSubmitButton">
                 <i
                   class="fa-solid fa-magnifying-glass"
                   style="color: #000000"
                 ></i>
               </button>
-            </form>
+            </div>
           </div>
         </div>
         <!-- The data that will display after user input -->

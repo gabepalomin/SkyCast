@@ -83,7 +83,7 @@ main {
 }
 
 .banner {
-  background-image: url('/images/pexels-pixabay-531756.jpg');
+  background-image: url('images/pexels-pixabay-531756.jpg');
   background-size: cover;
   background-position: center;
   max-width: 100%;
@@ -116,7 +116,7 @@ main {
 .proton{
   width: 80px;
   height: 80px;
-  background-image: url('/images/EARTH.png');
+  background-image: url('images/EARTH.png');
   background-size: cover;
   border-radius: 50%;
 

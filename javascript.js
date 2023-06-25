@@ -1,13 +1,13 @@
 async function getData(input) {
 
-	if(input.length != 6)
+	if(input.length > 6)
 	{
 		let para = document.getElementById('errorMessage');
 		para.textContent = "Invalid Flight Number, Enter the IATA flight number";
 	}
 	else{
 		// let url = "http://api.weatherapi.com/v1/current.json?key=3fda6242348841e0adf144419232206&q=chantilly"
-		let url = "http://api.aviationstack.com/v1/flights?access_key=37497d265cb317c22acb38152c565b61&flight_iata=" + input;
+		let url = "http://api.aviationstack.com/v1/flights?access_key=df4c0ede01f489b328e2e6a32c6a11a6&flight_iata=" + input;
 		// console.log(url);
 		//QI206
 		fetch(url, { mode: "cors" })
@@ -28,17 +28,19 @@ async function getData(input) {
   
   //Submit button is clicked
   let submitBtn = document.querySelector('#FlightNumberSubmitButton');
-  
+  const dataDiv = document.querySelector('.data');
   submitBtn.addEventListener('click', (event) => {
 
 	var elements = document.querySelectorAll('.data');
 	elements.forEach(function(element) {
   		element.style.display = 'none';
+      dataDiv.classList.add('animate');
 	});
 
 	var elements = document.querySelectorAll('.SearchMessage');
 	elements.forEach(function(element) {
 		element.style.display = 'flex';
+
 	});
 
 
@@ -73,7 +75,7 @@ async function getData(input) {
     let aircraftCode = data["data"]["0"]["flight"]["number"];
     let carrierCode = data["data"]["0"]["airline"]["iata"];
     let flightNumber = data["data"]["0"]["flight"]["number"];
-	let gate = data["data"]["0"]["departure"]["gate"];
+	  let gate = data["data"]["0"]["departure"]["gate"];
     let duration = calculateDuration(
       departure.slice(0, 19),
       arrival.slice(0, 19)
@@ -131,7 +133,7 @@ async function getData(input) {
       duration;
 	let delayChance = NaN
 	fetch(url2, {
-		headers: { Authorization: "Bearer sQcy64xATMiQtPA1J80UGRw1TVG8" },
+		headers: { Authorization: "Bearer a1KDHz2V7hA1AQktlwArCHKOKMEU" },
 	})
 		.then(function (response) {
 			return response.json();
@@ -166,10 +168,18 @@ async function getData(input) {
 	let delayCha = document.getElementById("delayChanceForJS");
 	delayCha.textContent = delayChance;
 
+  
+
 	var elements = document.querySelectorAll('.data');
 	elements.forEach(function(element) {
-  		element.style.display = 'grid';
+    element.style.display = 'grid';
 	});
+
+  
+
+  
+
+  
 
 	var elements = document.querySelectorAll('.SearchMessage');
 	elements.forEach(function(element) {

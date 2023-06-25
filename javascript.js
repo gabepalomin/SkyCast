@@ -138,7 +138,7 @@ async function getData(input) {
       duration;
 	let delayChance = 0
 	fetch(url2, {
-		headers: { Authorization: "Bearer k5dWwCnMYEY1mVvw5CjNwACQ2XGJ" },
+		headers: { Authorization: "Bearer 8YCz7OHdK1aWcDf0tykNwde8kIfe" },
 	})
 		.then(function (response) {
 			return response.json();

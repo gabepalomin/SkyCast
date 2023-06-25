@@ -197,24 +197,21 @@ main {
 
 .search {
   width: 197px;
-  height: 70px;
+  height: 55px;
   margin: 15px;
   text-align: center;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-}
-
-.search-bar {
   width: 100%;
   max-width: 197px;
   background: rgba(32, 50, 97, 0.2);
   border-radius: 40px;
-  display: flex;
-  align-items: center;
+
 }
 
-.search-bar input {
+
+.search input {
   background: transparent;
   flex: 1;
   border: 0;
@@ -225,11 +222,11 @@ main {
   color: #ffffff;
   padding: 10px 10px;
 }
-.search-bar button i {
+.search button i {
   font-size: 2rem;
 }
 
-.search-bar button {
+.search button {
   border: 0;
   width: 50px;
   height: 50px;
@@ -238,7 +235,7 @@ main {
   transition: 0.5s;
 }
 
-.search-bar button:hover {
+.search button:hover {
   background: rgb(255, 255, 255);
 }
 

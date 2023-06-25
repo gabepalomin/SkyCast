@@ -332,7 +332,8 @@ main {
   height: min-content;
   border-radius: 10px;
   /* Change to display grid to show the data */
-  display: grid;
+  display: none;
+  /* none */
   grid-template-columns: min-content;
   gap: 10px;
   position: absolute;
@@ -353,7 +354,8 @@ main {
   right: 6.94%;
   z-index: 2;
   /* Change to display flex so that it appears */
-  display: none;
+  display: flex;
+  /* none */
   align-items: center;
   justify-content: center;
   text-align: center;

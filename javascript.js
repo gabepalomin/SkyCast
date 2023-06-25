@@ -177,10 +177,10 @@ async function getData(input) {
 	arrivalTime.textContent = arrTime;
 
 	let arrAirportName = document.getElementById("arrAirportName");
-	arrAirportName = arrAirport;
-
+	arrAirportName.textContent = arrAirport;
+		alert(arrAirport);
 	let depAirportName = document.getElementById("depAirportName");
-	depAirportName = depAirport;
+	depAirportName.textContent = depAirport;
 
 	let elements = document.querySelectorAll('.data');
 	elements.forEach(function(element) {

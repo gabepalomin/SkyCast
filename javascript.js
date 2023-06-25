@@ -22,25 +22,24 @@ async function getData(input) {
 		})
 		.catch(function (error) {
 			document.getElementById('errorMessage').textContent = "We could not find any information on flight: " + input;
+			console.log(error)
 		});
 	}
   }
   
   //Submit button is clicked
   let submitBtn = document.querySelector('#FlightNumberSubmitButton');
-  const dataDiv = document.querySelector('.data');
+  
   submitBtn.addEventListener('click', (event) => {
 
 	var elements = document.querySelectorAll('.data');
 	elements.forEach(function(element) {
   		element.style.display = 'none';
-      dataDiv.classList.add('animate');
 	});
 
 	var elements = document.querySelectorAll('.SearchMessage');
 	elements.forEach(function(element) {
 		element.style.display = 'flex';
-
 	});
 
 
@@ -75,7 +74,13 @@ async function getData(input) {
     let aircraftCode = data["data"]["0"]["flight"]["number"];
     let carrierCode = data["data"]["0"]["airline"]["iata"];
     let flightNumber = data["data"]["0"]["flight"]["number"];
-	  let gate = data["data"]["0"]["departure"]["gate"];
+	let gate = data["data"]["0"]["departure"]["gate"];
+	
+	if(gate === null)
+	{
+		gate = "No Info"
+	}
+
     let duration = calculateDuration(
       departure.slice(0, 19),
       arrival.slice(0, 19)
@@ -131,7 +136,7 @@ async function getData(input) {
       flightNumber +
       "&duration=" +
       duration;
-	let delayChance = NaN
+	let delayChance = 0
 	fetch(url2, {
 		headers: { Authorization: "Bearer 8YCz7OHdK1aWcDf0tykNwde8kIfe" },
 	})
@@ -140,10 +145,17 @@ async function getData(input) {
 		})
 		.then(function (data) {
 			console.log("30 minute delay chance: " + data['data']['0']['probability']);
-			delayChance = data['data']['0']['probability']
+			console.log("60 minute delay chance: " + data['data']['1']['probability']);
+			console.log("90 minute delay chance: " + data['data']['2']['probability']);
+			console.log("120+ minute delay chance: " + data['data']['3']['probability']);
+
+			let delayCha = document.getElementById("delayChanceForJS");
+			delayCha.textContent = '' + 100 * Math.round(data['data']['0']['probability'] * 100) / 100 + '%';
+			
 		})
 		.catch(function (error) {
 			console.log("Delay chance API failed");
+			console.log(error);
 		});
 
 	let departureElement = document.getElementById("departurejs");
@@ -164,30 +176,24 @@ async function getData(input) {
 	let arrivalTime = document.getElementById("arrivalTime");
 	arrivalTime.textContent = arrTime;
 
-	
-	let delayCha = document.getElementById("delayChanceForJS");
-	delayCha.textContent = delayChance;
+	let arrAirportName = document.getElementById("arrAirportName");
+	arrAirportName.textContent = arrAirport;
+		alert(arrAirport);
+	let depAirportName = document.getElementById("depAirportName");
+	depAirportName.textContent = depAirport;
 
-  
-
-	var elements = document.querySelectorAll('.data');
+	let elements = document.querySelectorAll('.data');
 	elements.forEach(function(element) {
-    element.style.display = 'grid';
+  		element.style.display = 'grid';
 	});
 
-  
-
-  
-
-  
-
-	var elements = document.querySelectorAll('.SearchMessage');
-	elements.forEach(function(element) {
-		element.style.display = 'none';
+	let element = document.querySelectorAll('.SearchMessage');
+	element.forEach(function(ele) {
+		ele.style.display = 'none';
 	});
 }
   
-  function calculateDuration(departure, arrival) {
+function calculateDuration(departure, arrival) {
     //calculate flight duration and put it into ISO8601 format
     const departureTime = new Date(departure);
     const arrivalTime = new Date(arrival);
@@ -205,4 +211,4 @@ async function getData(input) {
     // Format the duration in ISO 8601 format
     const isoDuration = `P${days}DT${hours}H${minutes}M${seconds}S`;
     return isoDuration;
-  }
+}

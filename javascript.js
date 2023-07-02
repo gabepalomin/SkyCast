@@ -138,16 +138,13 @@ async function getData(input) {
       duration;
 	let delayChance = 0
 	fetch(url2, {
-		headers: { Authorization: "Bearer 8YCz7OHdK1aWcDf0tykNwde8kIfe" },
+		headers: { Authorization: "Bearer 4pW8rXpZU0v2wArF93V2WhgNpNmp" },
 	})
 		.then(function (response) {
 			return response.json();
 		})
 		.then(function (data) {
-			console.log("30 minute delay chance: " + data['data']['0']['probability']);
-			console.log("60 minute delay chance: " + data['data']['1']['probability']);
-			console.log("90 minute delay chance: " + data['data']['2']['probability']);
-			console.log("120+ minute delay chance: " + data['data']['3']['probability']);
+			
 
 			let delayCha = document.getElementById("delayChanceForJS");
 			delayCha.textContent = '' + 100 * Math.round(data['data']['0']['probability'] * 100) / 100 + '%';
@@ -178,7 +175,6 @@ async function getData(input) {
 
 	let arrAirportName = document.getElementById("arrAirportName");
 	arrAirportName.textContent = arrAirport;
-		alert(arrAirport);
 	let depAirportName = document.getElementById("depAirportName");
 	depAirportName.textContent = depAirport;
 

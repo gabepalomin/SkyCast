@@ -6,17 +6,12 @@ async function getData(input) {
 		para.textContent = "Invalid Flight Number, Enter the IATA flight number";
 	}
 	else{
-		// let url = "http://api.weatherapi.com/v1/current.json?key=3fda6242348841e0adf144419232206&q=chantilly"
-		let url = "http://api.aviationstack.com/v1/flights?access_key=425a6db363838a1bb46684f564983ff6&flight_iata=" + input;
-		// console.log(url);
-		//QI206
+		let url = "http://api.aviationstack.com/v1/flights?access_key=b39d1984c7900258091947bda6cbbdb9&flight_iata=" + input;
 		fetch(url, { mode: "cors" })
 		.then(function (response) {
-			// alert('first then');
 			return response.json();
 		})
 		.then(function (data) {
-			// alert('second then');
 			console.log(data);
 			displayData(data);
 		})
@@ -46,16 +41,7 @@ async function getData(input) {
     let flightNumberInput = document.querySelector('#userInput');
     console.log(flightNumberInput.value);
     getData(flightNumberInput.value);
-
-
-
-	
-
-
-	// document.getElementsByClassName('SearchMessage').style.display = 'SearchMessageDisplayData';
-	// let elements = document.getElementsByClassName('data');
   });
-  // getData();
   
   
   function displayData(data) {
@@ -88,29 +74,6 @@ async function getData(input) {
     let depAirport = data["data"]["0"]["departure"]["airport"];
     let arrAirport = data["data"]["0"]["arrival"]["airport"];
   
-  
-  
-  //to be deleted after testing. delete below
-  
-//   let depIata = 'NCE';
-//   let arrIata = 'IST';
-//   let depDate = '2020-08-01';
-//   let depTime = '18:20:00';
-//   let arrDate = '2020-08-01';
-//   let arrTime = '22:15:00';
-//   let aircraftCode = '321';
-//   let carrierCode = 'TK';
-//   let flightNumber = '1816';
-  
-//   let departure = '2023-06-25T08:30:00+00:00';
-//   let arrival = '2023-06-25T09:45:00+00:00';
-//   let duration = 'PT31H10M';
-//   let gate = '5A';
-  
-  //delete above
-  
-  
-    // let gate = data["data"]["0"]["departure"]["gate"];
     console.log(depIata, arrIata, depDate, depTime, arrDate, arrTime, aircraftCode, carrierCode, flightNumber, duration);
     let url2 =
       "https://test.api.amadeus.com/v1/travel/predictions/flight-delay?originLocationCode=" +
